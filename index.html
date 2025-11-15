@@ -37,7 +37,7 @@
     <div class="hearts" id="hearts"></div>
 
     <div class="card" role="main">
-      <h1 class="title">Para mi amor</h1>
+      <h1 class="title">Para mi amor Sofía</h1>
       <div class="subtitle">Una carta desde mi corazón</div>
 
       <div class="content" id="carta">
@@ -53,6 +53,9 @@ Te amo con un amor que no nunca había sentido, te sueño en mis planes, te llev
       </div>
 
       <div class="footer">Siempre tuyo.</div>
+        <div style="text-align:center; margin-top:18px;">
+          <button class="btn" id="explosion">Tócame</button>
+        </div>
       <div class="btns">
         <button class="btn" onclick="download()">Descargar HTML</button>
         <button class="btn" onclick="copyToClipboard()">Copiar texto</button>
@@ -92,6 +95,21 @@ Te amo con un amor que no nunca había sentido, te sueño en mis planes, te llev
       const text = document.getElementById('carta').innerText;
       navigator.clipboard.writeText(text).then(()=>alert('Texto copiado al portapapeles'));
     }
+      // Botón de corazones adicionales
+    document.getElementById('explosion').addEventListener('click', ()=>{
+      for(let i=0;i<22;i++){
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.style.fontSize = (18 + Math.random()*20) + 'px';
+        h.style.left = Math.random()*100 + '%';
+        h.style.animationDuration = (5 + Math.random()*5) + 's';
+        h.style.animationDelay = '0s';
+        h.style.opacity = 0.9;
+        h.textContent = '❤ perdóname colochita hermosa';
+        container.appendChild(h);
+        setTimeout(()=>h.remove(), 9000);
+      }
+    });
   </script>
 </body>
 </html>
